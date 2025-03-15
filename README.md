@@ -4,11 +4,6 @@
 
 A weave mod built for Lunar Client, allowing the `public` to finally get their hands on open source, community developed Lunar cheats.
 
-This is to be used in tandem with https://discord.gg/9E9JJHXMH8 (Weave discord server).
-
-Join the Fractal discord server here: https://discord.gg/TCpVya5jQd
-
-
 ```js
        java   17
      gradle   7.4.2

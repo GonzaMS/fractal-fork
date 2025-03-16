@@ -51,7 +51,7 @@ public class AutoClicker extends Module {
         this.registerSetting(new Setting("Random range", "How large the range above and below the selected CPS is (+- value).", this, null, 5, 2, 10));
         this.registerSetting(new Setting("Drop chance", "The chance your CPS drops to a lower CPS for a time.", this, null, 5, 1, 20));
 
-        this.registerSetting(new Setting("Jitter", this, null, 10, 1, 15));
+//        this.registerSetting(new Setting("Jitter", this, null, 10, 1, 15));
 
         Setting breakBlocks = new Setting("Break blocks", this, null, true);
         this.registerSetting(breakBlocks);
@@ -92,30 +92,26 @@ public class AutoClicker extends Module {
             return;
         }
 
-//        Fix this later.
-        if ((boolean) this.getVal("Break blocks")) {
-            if (this.lastBreak + (int) getModule("Auto Clicker").getVal("Break blocks delay") + (long) Random.nextRandom(-10, 10) > System.currentTimeMillis()) {
-                return;
-            }
-        }
-
-//        TODO: FIX THIS
-        if ((boolean) this.getVal("Break blocks") && this.mcInstance.objectMouseOver != null) {
+        if (this.enabled && (boolean) this.getVal("Break blocks") && this.mcInstance.objectMouseOver != null) {
             BlockPos pos = this.mcInstance.objectMouseOver.getBlockPos();
             if (pos != null) {
                 Block block = this.mcInstance.theWorld.getBlockState(pos).getBlock();
 
                 if (block != Blocks.air && !(block instanceof BlockLiquid) && (block != null)) {
+                    if (this.lastBreak + (int) getModule("Auto Clicker").getVal("Break blocks delay") + (long) Random.nextRandom(-10, 10) > System.currentTimeMillis()) {
+                        return;
+                    }
+
                     if (!this.held) {
                         new Thread(() -> {
                             try {
-                                Thread.sleep(10);  // Modify this for break delay.
+                                Thread.sleep(50);  // Modificar este valor para ajustar el retraso al romper bloques.
 
-                                Player.mouse(0, false);
+                                Player.mouse(0, false); // Liberar el clic
 
-                                Thread.sleep(95);
+                                Thread.sleep(95); // Esperar antes de volver a hacer clic
 
-                                Player.mouse(0, true);
+                                Player.mouse(0, true); // Hacer clic nuevamente
 
                             } catch (Exception ignored) { }
                         }).start();
@@ -129,13 +125,13 @@ public class AutoClicker extends Module {
                 if (this.held) {
                     this.lastBreak = System.currentTimeMillis();
                     this.held = false;
-
                     return;
                 }
             }
         }
 
         this.held = false;
+
         this.click();
     }
 
@@ -158,7 +154,7 @@ public class AutoClicker extends Module {
             }
         }
 
-        this.jitter((int) this.getVal("Jitter") + (int) (Random.simpleRandom(0, 2) * ((int) Random.simpleRandom(0, 2) == 1 ? 1 : -1)));
+//        this.jitter((int) this.getVal("Jitter") + (int) (Random.simpleRandom(0, 2) * ((int) Random.simpleRandom(0, 2) == 1 ? 1 : -1)));
 
         this.modifier = this.lastModifier;
         if (Random.nextRandom(0, 100) < 10) {
@@ -229,27 +225,27 @@ public class AutoClicker extends Module {
      * Jitters the mouse based on input, and applies a GCD patch.
      * @param amount X and Y amount.
      */
-    private void jitter(final int amount) {
-        if (amount == 0) {
-            return;
-        }
-
-        EntityPlayerSP player = this.mcInstance.thePlayer;
-
-        float yaw = (float) ((double) player.rotationYaw + ((Random.nextRandom(0, amount) * ((int) Random.simpleRandom(0, 2) == 1 ? 1 : -1)) / 75));
-        float pitch = (float) ((double) player.rotationPitch + ((Random.nextRandom(0, amount) * ((int) Random.simpleRandom(0, 2) == 1 ? 1 : -1)) / 75));
-
-        if (pitch > 90) {
-            pitch = 90;
-        }
-
-        if (pitch < -90) {
-            pitch = -90;
-        }
-
-        player.rotationYaw = this.gcd(yaw, player.rotationYaw);
-        player.rotationPitch = this.gcd(pitch, player.rotationPitch);
-    }
+//    private void jitter(final int amount) {
+//        if (amount == 0) {
+//            return;
+//        }
+//
+//        EntityPlayerSP player = this.mcInstance.thePlayer;
+//
+//        float yaw = (float) ((double) player.rotationYaw + ((Random.nextRandom(0, amount) * ((int) Random.simpleRandom(0, 2) == 1 ? 1 : -1)) / 75));
+//        float pitch = (float) ((double) player.rotationPitch + ((Random.nextRandom(0, amount) * ((int) Random.simpleRandom(0, 2) == 1 ? 1 : -1)) / 75));
+//
+//        if (pitch > 90) {
+//            pitch = 90;
+//        }
+//
+//        if (pitch < -90) {
+//            pitch = -90;
+//        }
+//
+//        player.rotationYaw = this.gcd(yaw, player.rotationYaw);
+//        player.rotationPitch = this.gcd(pitch, player.rotationPitch);
+//    }
 
     /**
      * Normalizes sensitivity rotations.

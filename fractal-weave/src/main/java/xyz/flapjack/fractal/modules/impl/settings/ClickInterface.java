@@ -22,7 +22,7 @@ public class ClickInterface extends Module {
         for (Images value: Images.values()) {
             options.add(value.toString());
         }
-        String[] phrases = {"Nice visuals? :o", "A random prompt", "Developed by Flapjack"};
+        String[] phrases = {"Nice visuals? :o", "A random prompt"};
 
         this.registerSetting(new Setting("Move while open", this, null, true));
         this.registerSetting(new Setting("Mouse parallax", this, null, false));

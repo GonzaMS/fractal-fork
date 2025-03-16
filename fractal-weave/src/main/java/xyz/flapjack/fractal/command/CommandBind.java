@@ -20,7 +20,7 @@ public class CommandBind extends Command {
             Chat.sendChatMessage(EnumChatFormatting.DARK_AQUA +
                     "[" +
                     EnumChatFormatting.WHITE +
-                    "Fractal" +
+                    "GonzaTheKing" +
                     EnumChatFormatting.DARK_AQUA +
                     "]" +
                     EnumChatFormatting.WHITE + " Invalid arguments.");
@@ -31,7 +31,7 @@ public class CommandBind extends Command {
             Chat.sendChatMessage(EnumChatFormatting.DARK_AQUA +
                     "[" +
                     EnumChatFormatting.WHITE +
-                    "Fractal" +
+                    "GonzaTheKing" +
                     EnumChatFormatting.DARK_AQUA +
                     "]" +
                     EnumChatFormatting.WHITE + " Invalid argument, specify a module and bind: /bind <Module> <key>");
@@ -42,7 +42,7 @@ public class CommandBind extends Command {
             Chat.sendChatMessage(EnumChatFormatting.DARK_AQUA +
                     "[" +
                     EnumChatFormatting.WHITE +
-                    "Fractal" +
+                    "GonzaTheKing" +
                     EnumChatFormatting.DARK_AQUA +
                     "]" +
                     EnumChatFormatting.WHITE + " Invalid argument, specify a module and bind: /bind <Module> <key>");
@@ -60,7 +60,7 @@ public class CommandBind extends Command {
                             Chat.sendChatMessage(EnumChatFormatting.DARK_AQUA +
                                     "[" +
                                     EnumChatFormatting.WHITE +
-                                    "Fractal" +
+                                    "GonzaTheKing" +
                                     EnumChatFormatting.DARK_AQUA +
                                     "]" +
                                     EnumChatFormatting.WHITE + String.format(" Rebinded %s to %s.", module.title, code.character));
@@ -74,7 +74,7 @@ public class CommandBind extends Command {
             Chat.sendChatMessage(EnumChatFormatting.DARK_AQUA +
                     "[" +
                     EnumChatFormatting.WHITE +
-                    "Fractal" +
+                    "GonzaTheKing" +
                     EnumChatFormatting.DARK_AQUA +
                     "]" +
                     EnumChatFormatting.WHITE + " No module found.");
@@ -82,7 +82,7 @@ public class CommandBind extends Command {
             Chat.sendChatMessage(EnumChatFormatting.DARK_AQUA +
                     "[" +
                     EnumChatFormatting.WHITE +
-                    "Fractal" +
+                    "GonzaTheKing" +
                     EnumChatFormatting.DARK_AQUA +
                     "]" +
                     EnumChatFormatting.WHITE + " Invalid argument, only keys 0-9, letters a-z and F keys are allowed.");

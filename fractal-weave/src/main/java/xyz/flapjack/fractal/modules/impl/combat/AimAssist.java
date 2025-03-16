@@ -36,7 +36,8 @@ public class AimAssist extends Module {
     private int lastEventY = 0;
 
     private int renderScale;
-    FriendList friendList = new FriendList();
+
+    PlayerNameColor playerNameColor = new PlayerNameColor();
 
 
     public AimAssist() {
@@ -282,9 +283,11 @@ public class AimAssist extends Module {
 
         for (EntityPlayer player: this.mcInstance.theWorld.playerEntities) {
             if (player != this.mcInstance.thePlayer) {
-                if (friendList.getAllFriends().contains(player.getName())) {
-                    continue; // Friend list skip
+
+                if (playerNameColor.isGreen(player)) {
+                    continue; // Green name skip
                 }
+
                 if (getModule("Antibot").enabled) {
                     if (Antibot.isBot(player)) {
                         break;

@@ -82,14 +82,6 @@ public class Access {
     }
 
     /**
-     * GitHub's information.
-     */
-    public static final class Github {
-        public static String github = "https://github.com/AriaJackie/Fractal";
-        public static String version = "https://raw.githubusercontent.com/AriaJackie/Fractal/main/version";
-    }
-
-    /**
      * Client control.
      */
     public static final class Client {

@@ -17,7 +17,7 @@ public class Delete extends Method {
         try {
             String dir = Utils.getLocalMinecraftPath();
 
-            File configFile = new File(dir, "\\fractal\\" + (String) module.getVal("Config") + ".txt");
+            File configFile = new File(dir, "\\license\\" + (String) module.getVal("Config") + ".txt");
 
             if (configFile.exists()) {
                 configFile.delete();
@@ -36,7 +36,7 @@ public class Delete extends Method {
         ArrayList<String> options = new ArrayList<>();
 
         try {
-            DirectoryStream<Path> stream = Files.newDirectoryStream(Path.of(Utils.getLocalMinecraftPath() + "\\fractal"));
+            DirectoryStream<Path> stream = Files.newDirectoryStream(Path.of(Utils.getLocalMinecraftPath() + "\\license"));
 
             for (Path path: stream) {
                 String name = path.getFileName().toString().substring(0, path.getFileName().toString().lastIndexOf('.'));

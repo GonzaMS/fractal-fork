@@ -20,23 +20,13 @@ public class ModuleManager {
     public ModuleManager() {
         addModule(new AimAssist());
         addModule(new AutoClicker());
-        addModule(new Blockhit());
-        addModule(new DoubleClicker());
         addModule(new Reach());
         addModule(new Velocity());
         addModule(new WTap());
 
-        addModule(new Sprint());
         addModule(new Strafe());
 
-        addModule(new AutoHeal());
-        addModule(new AutoPlace());
-        addModule(new BridgeAssist());
-        addModule(new ClickTweak());
-        addModule(new Hotkey());
-        addModule(new MLG());
         addModule(new Refill());
-        addModule(new RightClicker());
 
         addModule(new ClickInterface());
         addModule(new Configs());

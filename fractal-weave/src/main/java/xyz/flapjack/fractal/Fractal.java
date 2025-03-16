@@ -5,6 +5,7 @@ import xyz.flapjack.fractal.interfaces.clickgui.ClickGui;
 import xyz.flapjack.fractal.events.impl.StartGameEvent;
 import xyz.flapjack.fractal.keyboard.KeyboardManager;
 import xyz.flapjack.fractal.events.impl.RenderEvent;
+import xyz.flapjack.fractal.modules.impl.util.FriendList;
 import xyz.flapjack.fractal.render.font.FontManager;
 import xyz.flapjack.fractal.modules.ModuleManager;
 import xyz.flapjack.fractal.command.CommandBind;
@@ -19,11 +20,12 @@ import net.weavemc.loader.api.ModInitializer;
 /* Open. */
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.client.Minecraft;
-import java.net.URLConnection;
-import java.net.URL;
+
 import javax.swing.*;
 import java.awt.*;
 import java.io.*;
+import java.net.URL;
+import java.net.URLConnection;
 
 public class Fractal extends Access implements ModInitializer {
     public static Fractal INSTANCE;
@@ -32,6 +34,7 @@ public class Fractal extends Access implements ModInitializer {
     private ModuleManager moduleManager;
     private FontManager fontManager;
     private ClickGui clickGui;
+    private FriendList friendList;
 
     public Color themeColour = new Color(5, 152, 98);
 
@@ -39,33 +42,34 @@ public class Fractal extends Access implements ModInitializer {
     public void preInit() {
         INSTANCE = this;
 
+//        try {
+//            URL url = new URL(Github.version);
+//            URLConnection connection = url.openConnection();
+//            BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+//
+//            StringBuilder content = new StringBuilder();
+//            String line;
+//            while ((line = reader.readLine()) != null) {
+//                content.append(line);
+//            }
+//            reader.close();
+//
+//            if (!content.toString().equals(Client.version)) {
+//                JFrame frame = new JFrame();
+//                frame.setAlwaysOnTop(true);
+//
+//                JOptionPane.showMessageDialog(frame, "You're on an outdated version of Fractal. This is not recommended.", "Fractal", JOptionPane.WARNING_MESSAGE);
+//            }
+//        } catch (Exception ignored) {
+//            JFrame frame = new JFrame();
+//            frame.setAlwaysOnTop(true);
+//
+//            JOptionPane.showMessageDialog(frame, "Unable to connect to github.", "Fractal", JOptionPane.WARNING_MESSAGE);
+//        }
+
         CommandBus.register(new CommandBind());
         Instance.getEventBus().subscribe(this);
 
-        try {
-            URL url = new URL(Github.version);
-            URLConnection connection = url.openConnection();
-            BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-
-            StringBuilder content = new StringBuilder();
-            String line;
-            while ((line = reader.readLine()) != null) {
-                content.append(line);
-            }
-            reader.close();
-
-            if (!content.toString().equals(Client.version)) {
-                JFrame frame = new JFrame();
-                frame.setAlwaysOnTop(true);
-
-                JOptionPane.showMessageDialog(frame, "You're on an outdated version of Fractal. This is not recommended.", "Fractal", JOptionPane.WARNING_MESSAGE);
-            }
-        } catch (Exception ignored) {
-            JFrame frame = new JFrame();
-            frame.setAlwaysOnTop(true);
-
-            JOptionPane.showMessageDialog(frame, "Unable to connect to github.", "Fractal", JOptionPane.WARNING_MESSAGE);
-        }
     }
 
     @Subscribed(eventType = StartGameEvent.class)
@@ -75,7 +79,6 @@ public class Fractal extends Access implements ModInitializer {
         this.fontManager = new FontManager();
         this.clickGui = new ClickGui();
 
-        this.moduleManager.init();
 
         this.settingSetup();
         this.configSetup();
@@ -87,16 +90,16 @@ public class Fractal extends Access implements ModInitializer {
             Chat.sendChatMessage(EnumChatFormatting.DARK_AQUA +
                     "[" +
                     EnumChatFormatting.WHITE +
-                    "License" +
+                    "GonzaTheKing" +
                     EnumChatFormatting.DARK_AQUA +
                     "]" +
                     EnumChatFormatting.WHITE +
-                    " Welcome to License!");
+                    " Welcome to GonzaTheKing!");
 
             Chat.sendChatMessage(EnumChatFormatting.DARK_AQUA +
                     "[" +
                     EnumChatFormatting.WHITE +
-                    "License" +
+                    "GonzaTheKing" +
                     EnumChatFormatting.DARK_AQUA +
                     "]" +
                     EnumChatFormatting.WHITE +

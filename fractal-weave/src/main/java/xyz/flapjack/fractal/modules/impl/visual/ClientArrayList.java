@@ -46,11 +46,8 @@ public class ClientArrayList extends Module {
             switch (module.title) {
                 case "Aim Assist" -> descriptor = "S: " + (int) module.getVal("Speed");
                 case "Auto Clicker", "Right Clicker" -> descriptor = "C: " + (int) module.getVal("CPS");
-                case "Blockhit", "WTap" -> descriptor = "F: " + (int) module.getVal("Frequency");
-                case "Double Clicker" -> descriptor = "C: " + (int) module.getVal("Chance");
                 case "Reach" -> descriptor = "D: " +  String.format("%.2f", (double) module.getVal("Min distance")) + " - " + String.format("%.2f", (double) module.getVal("Max distance"));
                 case "Velocity" -> descriptor = "H: " + (int) module.getVal("Horizontal") + "% V: " + module.getVal("Vertical") + "%";
-                case "Fastplace" -> descriptor = "D: " + (int) module.getVal("Delay");
                 case "Chams", "ESP", "Antibot" -> descriptor = "M: " + (String) module.getVal("Mode");
             }
 

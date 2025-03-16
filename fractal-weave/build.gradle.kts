@@ -13,8 +13,6 @@ group = "xyz.flapjack"
 version = "1.2"
 
 minecraft.version("1.8.9")
-minecraft.version("1.7.10")
-
 repositories {
     mavenCentral()
     maven("https://jitpack.io")
